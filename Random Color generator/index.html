@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		/* Style for the button */
+		button {
+			background-color: red;
+			/* Red background color for the button */
+			cursor: pointer;
+			/* Changes cursor to pointer on hover */
+			font-size: 20px;
+			/* Font size for the button text */
+			padding: 0.6em;
+			/* Padding around the button text */
+			color: white;
+			/* Text color is white */
+			border: none;
+			/* No border for the button */
+			border-radius: 15px;
+			/* Rounded corners */
+		}
+
+		/* Style for the body */
+		body {
+			height: 100vh;
+			/* Full height of the viewport */
+			width: 100vw;
+			/* Full width of the viewport */
+			display: flex;
+			/* Flexbox for centering content */
+			flex-direction: column;
+			/* Arrange items vertically */
+			justify-content: center;
+			/* Center items vertically */
+			align-items: center;
+			/* Center items horizontally */
+			text-align: center;
+			/* Center text inside the body */
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Button to trigger color change -->
+	<button id="colorBtn">Click me</button>
+	<!-- Paragraph to display the generated hex color code -->
+	<p>Color Code is <span>#FFFFFF</span></p>
+	<script>
+		// String containing all valid hex characters for color codes
+		let colorCode = "0123456789ABCDEF";
+
+		// Function to generate a random hex color
+		function changeColor() {
+			let hexCode = "#"; // Initialize the hex code with "#"
+			// Loop to generate 6 random characters from the colorCode string
+			for (let index = 0; index < 6; index++) {
+				hexCode += colorCode[Math.floor(Math.random() * 16)];
+			}
+			return hexCode; // Return the generated hex code
+		}
+
+		// Get the button element by its ID
+		const Colorbutton = document.getElementById('colorBtn');
+		// Get the span element where the color code will be displayed
+		const colorCodeDisplay = document.querySelector('span');
+		// Get the body element to change its background color
+		const body = document.querySelector('body');
+
+		// Add a click event listener to the button
+		Colorbutton.addEventListener('click', (e) => {
+			// Generate a new random hex color
+			let bgColor = changeColor();
+			// Set the body's background color to the generated hex color
+			body.style.background = bgColor;
+			// Update the span element with the new color code
+			colorCodeDisplay.textContent = bgColor;
+		});
+	</script>
+</body>
+
+</html>

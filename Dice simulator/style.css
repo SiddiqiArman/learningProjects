@@ -1,0 +1,70 @@
+/* style.css */
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f8ff;
+}
+
+.container {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.dice {
+	font-size: 100px;
+	margin: 20px;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #45a049;
+}
+/* Rolling animation */
+@keyframes roll {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(90deg);
+	}
+
+	50% {
+		transform: rotate(180deg);
+	}
+
+	75% {
+		transform: rotate(270deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Dice container */
+.dice {
+	font-size: 100px;
+	margin: 20px auto;
+	display: inline-block;
+	transition: all 0.5s ease-in-out;
+}
+
+/* Add rolling effect temporarily */
+.rolling {
+	animation: roll 0.8s ease-in-out;
+}
